@@ -5,6 +5,7 @@
     angular
             .module('GApp', [
                 'routes',
-                'auth'
+                'auth',
+                'github'
             ]);
 })();
