@@ -3,6 +3,7 @@
 (function () {
 
     angular
-        .module('GApp', [
-        ]);
+            .module('GApp', [
+                'auth'
+            ]);
 })();
