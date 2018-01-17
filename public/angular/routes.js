@@ -16,9 +16,15 @@
         },
         {
             name: 'repoList',
-            url: '/repos',
+            url: '/repos-list',
             parent: 'authView',
             component: 'repoList',
+        },
+        {
+            name: 'repos',
+            url: '/repos/:org/:repo',
+            parent: 'authView',
+            component: 'repos',
         },
     ];
 

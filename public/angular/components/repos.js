@@ -1,7 +1,7 @@
 "use strict";
 
 (function () {
-    const name = 'repoList';
+    const name = 'repos';
 
     function Controller(GitHubService, AuthService) {
         GitHubService.setToken(AuthService.getApiKey());

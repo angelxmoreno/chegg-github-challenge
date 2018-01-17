@@ -1,6 +1,6 @@
-<a href ng-repeat="repo in $ctrl.list" ng-href="/repo/{{repo.id}}">
+<a ng-repeat="repo in $ctrl.list" href ui-sref="repos({ org: repo.owner.login, repo: repo.name })">
     <div class="well well-lg">
-        <h2>{{repo.name}}  <span class="small">{{repo.full_name}}</span></h2>
+        <h3>{{repo.name}}  <span class="small">{{repo.full_name}}</span></h3>
         <p class="lead">{{repo.description}}</p>
     </div>
 </a>

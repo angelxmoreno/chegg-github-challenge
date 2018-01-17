@@ -1,0 +1,23 @@
+<h1>{{$ctrl.repo_id}} <span class="small">Issues</span></h1>
+<hr>
+
+<div ng-hide="$ctrl.list && $ctrl.list.length">
+    <p>No issues here!</p>
+</div>
+
+<div class="row" ng-repeat="issue in $ctrl.list">
+    <h3>{{issue.title}}</h3>
+    <p class="lead">{{issue.body}}</p>
+    <p>Created by: {{issue.user.login}}</p>
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="assignee">Assignee</label>
+            <select class="form-control input-lg" id="assignee">
+                <option ng-repeat="collab in $ctrl.collaborators">
+                    {{collab.login}}
+                </option>
+            </select>
+        </div>
+    </form>
+    <hr>
+</div>
