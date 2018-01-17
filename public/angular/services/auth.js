@@ -1,12 +1,6 @@
 "use strict";
 
 (function () {
-    function config(CacheFactoryProvider) {
-        angular.extend(CacheFactoryProvider.defaults, {
-            maxAge: 15 * 60 * 1000
-        });
-    }
-
     function service($q, CacheFactory) {
         const CACHE_NAME = 'userCache';
 
@@ -46,6 +40,5 @@
             .module('auth', [
                 'angular-cache'
             ])
-            .config(config)
             .service('AuthService', ['$q', 'CacheFactory', service]);
 })();

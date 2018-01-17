@@ -3,12 +3,6 @@
 (function () {
     const GITHUB_URL = 'https://api.github.com';
 
-    function config(CacheFactoryProvider) {
-        angular.extend(CacheFactoryProvider.defaults, {
-            maxAge: 5 * 1000
-        });
-    }
-
     function service($http, $q, CacheFactory) {
         const CACHE_NAME = 'githubCache';
 
@@ -16,7 +10,8 @@
             CacheFactory.createCache(CACHE_NAME, {
                 deleteOnExpire: 'aggressive',
                 recycleFreq: 60000,
-                storageMode: 'memory'
+                storageMode: 'memory',
+                maxAge: 5 * 1000
             });
         }
 
@@ -71,6 +66,5 @@
             .module('github', [
                 'angular-cache'
             ])
-            .config(config)
             .service('GitHubService', ['$http', '$q', 'CacheFactory', service]);
 })();

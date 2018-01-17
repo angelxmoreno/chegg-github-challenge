@@ -19,6 +19,7 @@
     "bootstrap": "^3.3.7",
     "jquery": "^3.2.1",
     "angular-cache": "^4.6.0",
-    "angular-ui-router": "^1.0.13"
+    "angular-ui-router": "^1.0.13",
+    "angular-moment": "^1.2.0"
   }
 }
