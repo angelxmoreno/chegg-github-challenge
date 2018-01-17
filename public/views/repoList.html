@@ -1,3 +1,6 @@
-<div class="well well-lg" ng-repeat="repo in $ctrl.list">
-    {{repo.name }}
-</div>
+<a href ng-repeat="repo in $ctrl.list" ng-href="/repo/{{repo.id}}">
+    <div class="well well-lg">
+        <h2>{{repo.name}}  <span class="small">{{repo.full_name}}</span></h2>
+        <p class="lead">{{repo.description}}</p>
+    </div>
+</a>

@@ -3,20 +3,18 @@
 (function () {
     const name = 'repoList';
 
-    function Controller(AuthService) {
-        this.list = [
-            {
-                name: 'Repo One'
-            },
-            {
-                name: 'Repo Two'
-            }
-        ]
+    function Controller(GitHubService, AuthService) {
+        GitHubService.setToken(AuthService.getApiKey());
+        
+        GitHubService.repos().then((repos) => {
+            console.log(repos);
+            this.list = repos;
+        });
     }
 
     const componentConfig = {
         templateUrl: `/views/${name}.html`,
-        controller: ['AuthService', Controller],
+        controller: ['GitHubService', 'AuthService', Controller],
         bindings: {}
     };
 
