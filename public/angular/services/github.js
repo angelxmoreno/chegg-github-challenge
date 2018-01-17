@@ -26,6 +26,14 @@
             return this.callApi('/user/repos');
         };
         
+        this.issues = (repo_id) => {
+            return this.callApi(`/repos/${repo_id}/issues`);
+        };
+        
+        this.collaborators = (repo_id) => {
+            return this.callApi(`/repos/${repo_id}/collaborators`)
+        };
+        
         this.callApi = (uri) => {
             return $http({
                 method: 'GET',
