@@ -1,0 +1,24 @@
+{
+  "name": "chegg-github-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelxmoreno/chegg-github-challenge.git"
+  },
+  "author": "Angel S. Moreno <angelxmoreno@gmail.com> (https://angelxmoreno.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angelxmoreno/chegg-github-challenge/issues"
+  },
+  "homepage": "https://github.com/angelxmoreno/chegg-github-challenge#readme",
+  "dependencies": {
+    "bower": "^1.8.2",
+    "http-server": "^0.11.1",
+    "yarn": "^1.3.2"
+  }
+}
