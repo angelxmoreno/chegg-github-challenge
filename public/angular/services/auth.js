@@ -7,7 +7,7 @@
         });
     }
 
-    function service(CacheFactory) {
+    function service($q, CacheFactory) {
         const CACHE_NAME = 'userCache';
 
         if (!CacheFactory.get(CACHE_NAME)) {
@@ -26,6 +26,18 @@
             },
             setApiKey: function (api_key) {
                 return cache.put('/api_key', api_key);
+            },
+            validateUser: function () {
+                let deferred = $q.defer();
+                let api_key = this.getApiKey();
+
+                if (angular.isDefined(api_key)) {
+                    deferred.resolve(api_key);
+                } else {
+                    deferred.reject('no api_key found');
+                }
+
+                return deferred.promise;
             }
         };
     }
@@ -35,5 +47,5 @@
                 'angular-cache'
             ])
             .config(config)
-            .service('AuthService', service);
+            .service('AuthService', ['$q', 'CacheFactory', service]);
 })();
