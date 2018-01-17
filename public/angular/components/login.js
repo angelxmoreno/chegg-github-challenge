@@ -10,6 +10,7 @@
         this.loginAction = () => {
             let api_key = this.formData.api_key;
             AuthService.setApiKey(api_key);
+            this.goToList();
         };
         
         this.goToList = () => {
