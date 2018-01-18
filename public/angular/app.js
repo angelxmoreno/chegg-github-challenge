@@ -13,7 +13,7 @@
                 'auth',
                 'github',
                 'angularMoment',
-                'dndLists'
+                'ui.sortable'
             ])
             .config(config);
 })();
