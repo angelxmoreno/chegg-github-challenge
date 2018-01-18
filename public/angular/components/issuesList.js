@@ -18,6 +18,12 @@
             this.collaborators = collaborators;
         });
 
+
+        this.models = {
+            selected: null,
+            lists: {"A": []}
+        };
+
     }
 
     const componentConfig = {

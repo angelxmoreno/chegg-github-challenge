@@ -4,40 +4,48 @@
 <div ng-hide="$ctrl.list && $ctrl.list.length">
     <p>No issues here!</p>
 </div>
+{{$ctrl.models}}
+<section dnd-list="list">
+    <section 
+        ng-repeat="issue in $ctrl.list"
+        dnd-draggable="item"
+        dnd-moved="$ctrl.list.splice($index, 1)"
+        dnd-effect-allowed="move"
+        dnd-selected="$ctrl.models.selected = item"
+        ng-class="{'selected': $ctrl.models.selected === item}">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>{{issue.title}}</h3>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    Created On: 
+                    <strong>{{issue.created_at| date : "dd/MM/yyyy" }}</strong>
+                </p>
+                <p>
+                    Updated On:
+                    <strong><span am-time-ago="issue.created_at"></span></strong>
+                </p>
 
-<section ng-repeat="issue in $ctrl.list">
-    <div class="row">
-        <div class="col-md-6">
-            <h3>{{issue.title}}</h3>
-        </div>
-        <div class="col-md-4">
-            <p>
-                Created On: 
-                <strong>{{issue.created_at| date : "dd/MM/yyyy" }}</strong>
-            </p>
-            <p>
-                Updated On:
-                <strong><span am-time-ago="issue.created_at"></span></strong>
-            </p>
+            </div>
+            <div class="col-md-2">
+                <p>assigned to: <br />
+                    {{issue.assignee.login}} <br />
+                    <img width="80" src ng-src="{{issue.assignee.avatar_url}}">
+                </p>
 
+                <form ng-hide="true" class="form-inline">
+                    <div class="form-group">
+                        <label for="assignee">Assignee</label>
+                        <select class="form-control input-lg" id="assignee">
+                            <option ng-repeat="collab in $ctrl.collaborators">
+                                {{collab.login}}
+                            </option>
+                        </select>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="col-md-2">
-            <p>assigned to: <br />
-                {{issue.assignee.login}} <br />
-                <img width="80" src ng-src="{{issue.assignee.avatar_url}}">
-            </p>
-
-            <form ng-hide="true" class="form-inline">
-                <div class="form-group">
-                    <label for="assignee">Assignee</label>
-                    <select class="form-control input-lg" id="assignee">
-                        <option ng-repeat="collab in $ctrl.collaborators">
-                            {{collab.login}}
-                        </option>
-                    </select>
-                </div>
-            </form>
-        </div>
-    </div>
-    <hr>
+        <hr>
+    </section>
 </section>

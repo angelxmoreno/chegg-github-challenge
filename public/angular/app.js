@@ -12,7 +12,8 @@
                 'routes',
                 'auth',
                 'github',
-                'angularMoment'
+                'angularMoment',
+                'dndLists'
             ])
             .config(config);
 })();
